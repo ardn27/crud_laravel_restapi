@@ -1,53 +1,7 @@
-```markdown
-# Laravel REST API for Mahasiswa
-
-This is a simple guide on how to create a RESTful API for managing Mahasiswa (students) using Laravel and test it using Postman.
-
-## Prerequisites
-
-Make sure you have the following installed on your machine:
-
-- [PHP](https://www.php.net/manual/en/install.php)
-- [Composer](https://getcomposer.org/download/)
-- [Laravel](https://laravel.com/docs/10.x/installation)
-- [Postman](https://www.postman.com/downloads/)
-
-## Getting Started
-
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/ardn27/crud-laravel-restapi.git
-   cd laravel-mahasiswa-api
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   composer install
-   ```
-
-3. Copy the `.env.example` file and rename it to `.env`:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-4. Run database migrations:
-
-   ```bash
-   php artisan migrate
-   ```
-
-5. Start the development server:
-
-   ```bash
-   php artisan serve
-   ```
-
-Your Laravel API is now running at `http://localhost:8000`.
 
 ## API Endpoints
+
+## Tabel Mahasiswa
 
 ### 1. Get All Mahasiswa
 
@@ -95,16 +49,86 @@ Your Laravel API is now running at `http://localhost:8000`.
 
 - **DELETE /api/mahasiswa/{id}**: Delete a Mahasiswa by ID
 
-## Testing with Postman
+## Tabel Buku
 
-1. Open Postman and import the collection from the `postman` folder in this repository.
+### 1. Get All Book
 
-2. Update the environment variables in Postman to match your local setup.
+- **GET /api/buku**: Get all Book records
 
-3. Test each API endpoint using the provided requests.
+### 2. Get Book by ID
 
-## Additional Information
+- **GET /api/buku/{id}**: Get a specific Book by ID
 
-- Laravel Documentation: [https://laravel.com/docs/8.x](https://laravel.com/docs/8.x)
-- Postman Documentation: [https://learning.postman.com/docs/getting-started/introduction/](https://learning.postman.com/docs/getting-started/introduction/)
+### 3. Create Buku
+
+- **POST /api/buku**: Create a new Book
+
+   Request Body:
+   ```json
+   {
+     "judul": "Bumi Manusia",
+     "deskripsi": "Buku Petualangan tanah jawa",
+     "cover": "your image"
+   }
+   ```
+
+### 4. Update Book
+
+- **PUT /api/buku/{id}**: Update a Book by ID
+
+   Request Body:
+   ```json
+   {
+     "judul": "25 Nabi dan Rasul",
+     "deskripsi": "Buku Perjalanan 25 Nabi dan Rasul",
+     "cover": "your image"
+   }
+   ```
+
+### 5. Delete Book
+
+- **DELETE /api/buku/{id}**: Delete a Book by ID
+
+
+## Tabel Pinjaman
+
+### 1. Get All Pinjaman
+
+- **GET /api/pinjaman**: Get all Pinjaman records
+
+### 2. Get Pinjaman by ID
+
+- **GET /api/pinjaman/{id}**: Get a specific Pinjaman by ID
+
+### 3. Create Pinjaman
+
+- **POST /api/pinjaman**: Create a new Pinjaman
+
+   Request Body:
+   ```json
+   {
+     "mahasiswa_id": 1,
+     "buku_id": 2,
+     "tgl_pinjam": 2023-12-19,
+     "kondisi": "baik"
+   }
+   ```
+
+### 4. Update Pinjaman
+
+- **PUT /api/pinjaman/{id}**: Update a Pinjaman by ID
+
+   Request Body:
+   ```json
+   {
+     "mahasiswa_id": 3,
+     "buku_id": 1,
+     "tgl_pinjam": 2023-12-19,
+     "kondisi": "layak"
+   }
+   ```
+
+### 5. Delete Pinjaman
+
+- **DELETE /api/pinjaman/{id}**: Delete a Pinjaman by ID
 
