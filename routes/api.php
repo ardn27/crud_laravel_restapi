@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaApiController;
 use App\Http\Controllers\PinjamanController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\KlubController;
+use App\Http\Controllers\SupporterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +43,17 @@ Route::get('/pinjaman', [PinjamanController::class, 'show']);
 Route::get('/pinjaman/{id}', [PinjamanController::class, 'showDetail']);
 Route::put('/pinjaman/{id}', [PinjamanController::class, 'update']);
 Route::delete('/pinjaman/{id}', [PinjamanController::class, 'delete']);
+
+//Klub
+Route::get('/klub', [KlubCOntroller::class, 'read']);
+Route::get('/klub/{id}', [KlubController::class, 'readById']);
+Route::post('/klub', [KlubController::class, 'store']);
+Route::put('/klub/{id}', [KlubController::class, 'update']);
+Route::delete('/klub/{id}', [KlubController::class, 'destroy']);
+
+//Supporter
+Route::get('/supporter', [SupporterController::class, 'read']);
+Route::get('/supporter/{id}', [SupporterController::class, 'readById']);
+Route::post('/supporter', [SupporterController::class, 'store']);
+Route::put('/supporter/{id}', [SupporterController::class, 'update']);
+Route::delete('/supporter/{id}', [SupporterController::class, 'destroy']);
