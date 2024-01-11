@@ -8,7 +8,7 @@ use App\Models\Supporter;
 
 class SupporterController extends Controller
 {
-    public function read(Requst $request)
+    public function read(Request $request)
     {
         $support = Supporter::all();
 

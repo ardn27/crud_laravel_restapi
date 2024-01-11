@@ -24,6 +24,10 @@ class KlubController extends Controller
     {
         $klub = new Klub;
         $klub->id_klub = $request->id_klub;
+        if($request->hasFile('logo_klub')){
+            $request->file('logo_klub')->move('public/Supporter', $request->file('logo_klub')->getClientOriginalName());
+            $klub->logo_klub = $request->file('logo_klub')->getClientOriginalName();
+        }
         $klub->nama_klub = $request->nama_klub;
         $klub->tgl_berdiri = date('Y-m-d', strtotime($request->tgl_berdiri));
         $klub->kondisi_klub = $request->kondisi_klub;
@@ -38,6 +42,10 @@ class KlubController extends Controller
     public function update(Request $request, $id)
     {
         $klub = Klub::find($id);
+        if($request->hasFile('logo_klub')){
+            $request->file('logo_klub')->move('public/Supporter', $request->file('logo_klub')->getClientOriginalName());
+            $klub->logo_klub = $request->file('logo_klub')->getClientOriginalName();
+        }
         $klub->update($request->all());
         $klub->save();
 

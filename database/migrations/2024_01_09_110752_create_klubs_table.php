@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('klubs', function (Blueprint $table) {
             $table->id();
             $table->String('id_klub');
+            $table->String('logo_klub');
             $table->text('nama_klub');
             $table->date('tgl_berdiri');
             $table->string('kondisi_klub');
