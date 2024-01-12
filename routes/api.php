@@ -7,6 +7,7 @@ use App\Http\Controllers\PinjamanController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KlubController;
 use App\Http\Controllers\SupporterController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,6 @@ Route::get('/supporter/{id}', [SupporterController::class, 'readById']);
 Route::post('/supporter', [SupporterController::class, 'store']);
 Route::put('/supporter/{id}', [SupporterController::class, 'update']);
 Route::delete('/supporter/{id}', [SupporterController::class, 'destroy']);
+
+//login
+Route::post('/login', [UserController::class, 'login'])->name('login');
